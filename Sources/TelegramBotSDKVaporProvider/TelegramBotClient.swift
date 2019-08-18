@@ -24,6 +24,8 @@ public class TelegramBotClient: Service {
     public func handleRequest(_ request: Request) throws {
         guard let body = request.http.body.data else { return }
         let update = Update(data: body)
-        try router.process(update: update)
+        try router.process(update: update, properties: [
+            "request": request
+        ])
     }
 }
