@@ -10,7 +10,7 @@ import Vapor
 import TelegramBotSDK
 
 extension Context {
-    var vaporRequest: Request? {
+    public var vaporRequest: Request? {
         return self.properties["request"] as? Request
     }
 }
