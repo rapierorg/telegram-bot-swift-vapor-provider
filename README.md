@@ -1,4 +1,4 @@
-# TelegramBotSDKVaporProvider
+# TelegramBotSDK Vapor Provider
 ### This package is part of [TelegramBotSDK](https://github.com/rapierorg/telegram-bot-swift)
 
 
