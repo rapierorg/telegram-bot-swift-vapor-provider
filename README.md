@@ -3,12 +3,11 @@
 
 
 You need just to add these lines to your Vapor app:
-
-#### Package.swift
+### File: Package.swift
 - Add `.package(url: "https://github.com/rapierorg/telegram-bot-swift-vapor-provider.git", from: "0.2.1"),`
 - Add `TelegramBotSDKVaporProvider` to your `App` target dependencies
 
-### configure.swift
+### File: configure.swift
 Add the following lines to your configure function:
 ```swift
 services.register(TelegramBotConfig(apiToken: "your-api-token-here", routerConfiguration: { (router) in
@@ -17,7 +16,7 @@ services.register(TelegramBotConfig(apiToken: "your-api-token-here", routerConfi
 try services.register(TelegramBotProvider())
 ```
 
-### routes.swift
+### File: routes.swift
 ```swift
 router.post("change", "me") { (request) -> HTTPStatus in // Change route
     let telegramClient = try request.make(TelegramBotClient.self)
