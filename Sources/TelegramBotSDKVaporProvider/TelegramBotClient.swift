@@ -22,8 +22,7 @@ public class TelegramBotClient: Service {
     }
     
     public func handleRequest(_ request: Request) throws {
-        guard let body = request.http.body.data else { return }
-        let update = Update(data: body)
+        let update = try request.content.decode(json: Update.self, using: JSONDecoder()).wait()
         try router.process(update: update, properties: [
             "request": request
         ])
